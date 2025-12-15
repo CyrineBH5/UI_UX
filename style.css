@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
 body {
   font-family: "League Spartan", sans-serif;
@@ -9,19 +8,19 @@ h1, h2, h3 {
 }
 
 .main-header {
-  background-color: #09B0BF;
+  background-color: #06BBCC;
   color: #ffffff;
 }
 .main-header .fa-brain {
-  color: #09B0BF;
+  color: #06BBCC;
 }
 .main-header button:hover {
-  background-color: rgb(7.164, 140.096, 152.036);
+  background-color: rgb(4.8342857143, 150.6685714286, 164.3657142857);
 }
 
 .app-sidebar {
   width: 80px;
-  height: calc(111vh - 80px);
+  height: calc(100vh - 80px);
   background-color: white;
   border-right: 1px solid #e5e7eb;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -57,8 +56,8 @@ h1, h2, h3 {
   transform: scale(1.03);
 }
 .sidebar-btn.active {
-  color: #09B0BF;
-  background-color: rgb(178.1225, 245.34, 251.3775);
+  color: #06BBCC;
+  background-color: rgb(186.5142857143, 247.2785714286, 252.9857142857);
   border-radius: 0.5rem;
   margin-bottom: 1rem;
 }
@@ -66,7 +65,7 @@ h1, h2, h3 {
   color: #4b5563;
 }
 .sidebar-btn:not(.active):hover {
-  color: #09B0BF;
+  color: #06BBCC;
 }
 .sidebar-btn.logout-btn {
   margin-top: auto;
@@ -77,7 +76,7 @@ h1, h2, h3 {
 }
 .sidebar-btn.logout-btn:hover {
   color: #ef4444;
-  transform: scale(1.1); /* Effet zoom pour le déconnexion */
+  transform: scale(1.1);
 }
 
 /*# sourceMappingURL=style.css.map */

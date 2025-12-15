@@ -1,0 +1,145 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calendar-horizontal {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: calc(100vh - 200px);
+}
+
+/* --- SECTION EN-TÊTE DES JOURS --- */
+.days-header {
+    /* Largeur des colonnes synchronisée avec time-grid */
+    display: grid;
+    grid-template-columns: 80px repeat(7, 1fr);
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.day-header {
+    /* Correction de la hauteur : réduction drastique du padding vertical (5px au lieu de 15px) */
+    padding: 5px 10px; 
+    text-align: center;
+    background-color: #f9fafb;
+    border-right: 1px solid #e5e7eb;
+}
+
+/* Assurer un padding encore plus petit pour la colonne de l'horloge (première colonne) */
+.days-header .day-header:first-child {
+    padding: 5px 0; 
+}
+
+.current-day {
+    /* Maintenu pour le style de la date du jour */
+    background-color: #06b6d4;
+    color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+    display: inline-block;
+    margin-top: 5px; /* Petit espace sous le nom du jour */
+}
+
+/* --- SECTION GRILLE DES HEURES --- */
+.time-grid {
+    /* Largeur des colonnes synchronisée avec days-header */
+    display: grid;
+    grid-template-columns: 80px repeat(7, 1fr);
+    overflow-y: auto;
+}
+
+.time-slot {
+    height: 60px; /* La hauteur de base d'un slot horaire */
+    border-bottom: 1px solid #f3f4f6;
+    position: relative;
+}
+
+.day-column {
+    border-right: 1px solid #e5e7eb;
+    position: relative;
+}
+
+.today-column {
+    background-color: #ecfeff;
+}
+
+.hour-label {
+    /* Étiquettes d'heure de la première colonne */
+    font-size: 12px;
+    color: #6b7280;
+    padding: 5px;
+    text-align: right;
+    border-right: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+}
+
+/* --- STYLES DES ÉVÉNEMENTS ET MODALES --- */
+.calendar-event {
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    border-radius: 6px;
+    padding: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left-width: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-event:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.event-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.event-color-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+/* Scrollbar personnalisée */
+.time-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.time-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.time-grid::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.time-grid::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

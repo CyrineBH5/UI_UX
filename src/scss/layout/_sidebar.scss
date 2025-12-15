@@ -3,7 +3,7 @@
 .app-sidebar {
     width: $sidebar-width;
     // Remplace h-[calc(100vh-80px)]
-    height: calc(111vh - $header-height); 
+    height: calc(100vh - $header-height); 
     background-color: white;
     border-right: 1px solid #e5e7eb; 
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -68,13 +68,11 @@
         display: flex;
         justify-content: center;
         
-        // ⬆️ Amélioration : Augmenter la zone de clic
         padding: 0.75rem; 
         
-        // Style de survol spécifique à la déconnexion
         &:hover {
             color: #ef4444; 
-            transform: scale(1.1); /* Effet zoom pour le déconnexion */
+            transform: scale(1.1); 
         }
     }
 }
