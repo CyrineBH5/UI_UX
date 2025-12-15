@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Tâches - Digital Minds</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-cyan-600 text-white px-6 py-3 flex items-center justify-between">
+        <h1 class="text-xl font-semibold">Digital Minds</h1>
+        <div class="flex items-center gap-4">
+            <div class="relative">
+                <input type="search" placeholder="Search" class="px-4 py-2 rounded-md text-gray-800 w-64">
+            </div>
+            <div class="relative">
+                <button class="relative">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                    <span class="absolute -top-1 -right-1 bg-red-500 text-xs rounded-full w-4 h-4 flex items-center justify-center">3</span>
+                </button>
+            </div>
+            <div class="w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23ddd'/%3E%3C/svg%3E" alt="Profile">
+            </div>
+        </div>
+    </header>
+
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-20 bg-white border-r border-gray-200 flex flex-col items-center py-6 gap-6">
+            <button class="flex flex-col items-center gap-1 text-gray-600 hover:text-cyan-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <span class="text-xs">Matières</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-gray-600 hover:text-cyan-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <span class="text-xs">Calendrier</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-gray-600 hover:text-cyan-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span class="text-xs">Examens</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-cyan-600 bg-cyan-50 p-2 rounded border-l-4 border-cyan-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                </svg>
+                <span class="text-xs">Tâches</span>
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-auto">
+            <!-- Progress Section -->
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                <div class="flex items-start justify-between">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Progression Globale</h2>
+                        <p class="text-sm text-gray-500 mb-4">Suivis facilement l'avancement du travail ou il du temps.</p>
+                        
+                        <!-- Progress Bar -->
+                        <div class="relative w-full max-w-xl">
+                            <div class="h-8 bg-gray-200 rounded-full overflow-hidden border-2 border-gray-300">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full transition-all duration-300" style="width: 45%"></div>
+                            </div>
+                            <div class="absolute right-0 top-0 bg-white px-3 py-1 rounded-full border-2 border-gray-300 font-bold text-gray-700">
+                                45%
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Badges Section -->
+                    <div class="text-center bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-4 border-2 border-cyan-200">
+                        <div class="text-gray-600 font-semibold mb-2">Combo</div>
+                        <div class="flex justify-center mb-2">
+                            <svg class="w-12 h-12 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-3xl font-bold text-cyan-600">2</div>
+                        <div class="text-sm text-gray-600 font-semibold">Badges</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex gap-3 mb-6">
+                <button class="px-6 py-2 bg-gray-300 text-gray-800 rounded-full font-medium hover:bg-gray-400 transition">
+                    Toutes (3)
+                </button>
+                <button class="px-6 py-2 bg-gray-200 text-gray-600 rounded-full font-medium hover:bg-gray-300 transition">
+                    En cours (1)
+                </button>
+                <button class="px-6 py-2 bg-gray-200 text-gray-600 rounded-full font-medium hover:bg-gray-300 transition">
+                    Complété (2)
+                </button>
+                <button class="px-6 py-2 bg-gray-200 text-gray-600 rounded-full font-medium hover:bg-gray-300 transition">
+                    En retard (0)
+                </button>
+            </div>
+
+            <!-- Tasks List Section -->
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-bold text-gray-800">Liste des taches</h3>
+                    <button id="addTaskBtn" class="px-4 py-2 bg-cyan-500 text-white rounded-md hover:bg-cyan-600 transition font-medium">
+                        + Tâche
+                    </button>
+                </div>
+
+                <!-- Task Items -->
+                <div class="space-y-4" id="taskList">
+                    <!-- Task 1 -->
+                    <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition group">
+                        <input type="checkbox" class="w-5 h-5 rounded border-2 border-gray-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer">
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-800">Série d'exercice 2</h4>
+                            <span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs rounded-full mt-1">Mathématique</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-500">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="text-sm">Date 27 Nov 2025</span>
+                        </div>
+                        <button class="opacity-0 group-hover:opacity-100 p-2 text-yellow-600 hover:bg-yellow-50 rounded transition">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
+                        </button>
+                        <button class="opacity-0 group-hover:opacity-100 p-2 text-red-600 hover:bg-red-50 rounded transition delete-btn">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Task 2 -->
+                    <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition group">
+                        <input type="checkbox" class="w-5 h-5 rounded border-2 border-gray-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer">
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-800">Résumé chapitre 1 : Modélisation PL</h4>
+                            <span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs rounded-full mt-1">Mathématique</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-500">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="text-sm">Date 27 Nov 2025</span>
+                        </div>
+                        <button class="opacity-0 group-hover:opacity-100 p-2 text-yellow-600 hover:bg-yellow-50 rounded transition">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
+                        </button>
+                        <button class="opacity-0 group-hover:opacity-100 p-2 text-red-600 hover:bg-red-50 rounded transition delete-btn">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Task 3 -->
+                    <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition group">
+                        <input type="checkbox" class="w-5 h-5 rounded border-2 border-gray-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer">
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-800">Quiz Rendu Exercice Graphique PL</h4>
+                            <span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs rounded-full mt-1">Mathématique</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-500">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="text-sm">Date 27 Nov 2025</span>
+                        </div>
+                        <button class="opacity-0 group-hover:opacity-100 p-2 text-yellow-600 hover:bg-yellow-50 rounded transition">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
+                        </button>
+                        <button class="opacity-0 group-hover:opacity-100 p-2 text-red-600 hover:bg-red-50 rounded transition delete-btn">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fixed bottom-8 right-8 bg-cyan-600 text-white p-4 rounded-full shadow-lg hover:bg-cyan-700">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+        </svg>
+    </button>
+
+    <!-- Modal for Adding Task -->
+    <div id="addTaskModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md shadow-xl">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Ajouter une nouvelle tâche</h3>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Titre de la tâche</label>
+                    <input type="text" id="taskTitle" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="Ex: Exercice de mathématique">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Matière</label>
+                    <input type="text" id="taskSubject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="Ex: Mathématique">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                    <input type="date" id="taskDate" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                </div>
+            </div>
+            <div class="flex gap-3 mt-6">
+                <button id="cancelBtn" class="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition font-medium">
+                    Annuler
+                </button>
+                <button id="saveTaskBtn" class="flex-1 px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition font-medium">
+                    Ajouter
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const addTaskBtn = document.getElementById('addTaskBtn');
+        const addTaskModal = document.getElementById('addTaskModal');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const saveTaskBtn = document.getElementById('saveTaskBtn');
+        const taskList = document.getElementById('taskList');
+
+        addTaskBtn.addEventListener('click', () => {
+            addTaskModal.classList.remove('hidden');
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            addTaskModal.classList.add('hidden');
+            clearForm();
+        });
+
+        addTaskModal.addEventListener('click', (e) => {
+            if (e.target === addTaskModal) {
+                addTaskModal.classList.add('hidden');
+                clearForm();
+            }
+        });
+
+        // Add new task
+        saveTaskBtn.addEventListener('click', () => {
+            const title = document.getElementById('taskTitle').value;
+            const subject = document.getElementById('taskSubject').value;
+            const date = document.getElementById('taskDate').value;
+
+            if (title && subject && date) {
+                const formattedDate = new Date(date).toLocaleDateString('fr-FR', { 
+                    day: 'numeric', 
+                    month: 'short', 
+                    year: 'numeric' 
+                });
+
+                const taskHTML = `
+                    <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition group">
+                        <input type="checkbox" class="w-5 h-5 rounded border-2 border-gray-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer">
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-800">${title}</h4>
+                            <span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs rounded-full mt-1">${subject}</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-500">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="text-sm">Date ${formattedDate}</span>
+                        </div>
+                        <button class="opacity-0 group-hover:opacity-100 p-2 text-yellow-600 hover:bg-yellow-50 rounded transition">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
+                        </button>
+                        <button class="opacity-0 group-hover:opacity-100 p-2 text-red-600 hover:bg-red-50 rounded transition delete-btn">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+
+                taskList.insertAdjacentHTML('beforeend', taskHTML);
+                addTaskModal.classList.add('hidden');
+                clearForm();
+                attachDeleteEvent();
+            } else {
+                alert('Veuillez remplir tous les champs');
+            }
+        });
+
+        function clearForm() {
+            document.getElementById('taskTitle').value = '';
+            document.getElementById('taskSubject').value = '';
+            document.getElementById('taskDate').value = '';
+        }
+
+        // Delete task functionality
+        function attachDeleteEvent() {
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?')) {
+                        this.closest('.group').remove();
+                    }
+                });
+            });
+        }
+
+        attachDeleteEvent();
+
+        // Checkbox functionality
+        document.addEventListener('change', (e) => {
+            if (e.target.type === 'checkbox') {
+                const taskItem = e.target.closest('.group');
+                if (e.target.checked) {
+                    taskItem.style.opacity = '0.6';
+                    taskItem.querySelector('h4').classList.add('line-through');
+                } else {
+                    taskItem.style.opacity = '1';
+                    taskItem.querySelector('h4').classList.remove('line-through');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

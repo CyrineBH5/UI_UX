@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["src/scss/base/_typography.scss","src/scss/abstracts/_variables.scss","src/scss/layout/_header.scss"],"names":[],"mappings":"AAGQ;AAGR;EAEI,aCKkB;;;ADDtB;EACI;;;AEXJ;EAEI,kBDIY;ECDZ,ODEU;;ACCV;EACI,ODHQ;;ACOZ;EAEI","file":"style.css"}

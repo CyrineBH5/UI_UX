@@ -1,0 +1,56 @@
+// =============================================
+// LAYOUT: SIDEBAR
+// =============================================
+
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.sidebar {
+  background: $white;
+  width: $sidebar-width;
+  padding: $spacing-md;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__item {
+    @include flex-start;
+    gap: $spacing-md;
+    padding: $spacing-md;
+    border-radius: $radius-md;
+    color: $gray-700;
+    transition: all $transition-base;
+
+    &:hover {
+      background-color: $gray-100;
+      color: $primary-color;
+    }
+
+    &--active {
+      background-color: #e0f7fa;
+      border-left: 4px solid $primary-color;
+      color: $primary-color;
+      font-weight: $font-weight-semibold;
+
+      .sidebar__icon {
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__icon {
+    color: $gray-600;
+    width: 20px;
+    text-align: center;
+  }
+}
+
+@include respond-to(md) {
+  .sidebar {
+    display: none;
+  }
+}
