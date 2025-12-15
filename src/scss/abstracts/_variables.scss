@@ -9,10 +9,14 @@
 $color-primary: #09B0BF; // La couleur de l'en-tête (Bleu-Cyan demandé)
 $color-white: #ffffff;
 $color-text-dark: #333333;
-
+$color-primary-light: lighten($color-primary, 45%); // Pour le bg-opacity-10
+$color-primary-hover: darken($color-primary, 10%);
+$color-gray-text: #4b5563; // gray-600
 // Polices
 $font-league-spartan: 'League Spartan', sans-serif;
 
+$sidebar-width: 80px;
+$header-height: 80px;
 // // COLORS
 // $primary-color: #00bcd4;
 // $primary-dark: #00acc1;

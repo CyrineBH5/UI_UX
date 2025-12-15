@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
 body {
   font-family: "League Spartan", sans-serif;
@@ -16,6 +17,67 @@ h1, h2, h3 {
 }
 .main-header button:hover {
   background-color: rgb(7.164, 140.096, 152.036);
+}
+
+.app-sidebar {
+  width: 80px;
+  height: calc(111vh - 80px);
+  background-color: white;
+  border-right: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.sidebar-btn {
+  width: 90%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition: color 150ms ease-in-out, transform 150ms ease-in-out;
+  cursor: pointer;
+}
+.sidebar-btn.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.sidebar-btn.navigation .icon {
+  font-size: 1.125rem;
+  transition: transform 100ms ease-out;
+}
+.sidebar-btn.navigation .text {
+  font-size: 0.75rem;
+}
+.sidebar-btn.navigation:hover .icon, .sidebar-btn.navigation:hover .text {
+  transform: scale(1.03);
+}
+.sidebar-btn.active {
+  color: #09B0BF;
+  background-color: rgb(178.1225, 245.34, 251.3775);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.sidebar-btn:not(.active) {
+  color: #4b5563;
+}
+.sidebar-btn:not(.active):hover {
+  color: #09B0BF;
+}
+.sidebar-btn.logout-btn {
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem;
+}
+.sidebar-btn.logout-btn:hover {
+  color: #ef4444;
+  transform: scale(1.1); /* Effet zoom pour le déconnexion */
 }
 
 /*# sourceMappingURL=style.css.map */

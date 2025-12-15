@@ -1,56 +1,80 @@
-// =============================================
-// LAYOUT: SIDEBAR
-// =============================================
+@import '../abstracts/variables';
 
-@use "../abstracts/variables" as *;
-@use "../abstracts/mixins" as *;
-
-.sidebar {
-  background: $white;
-  width: $sidebar-width;
-  padding: $spacing-md;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
-
-  &__nav {
+.app-sidebar {
+    width: $sidebar-width;
+    // Remplace h-[calc(100vh-80px)]
+    height: calc(111vh - $header-height); 
+    background-color: white;
+    border-right: 1px solid #e5e7eb; 
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    
     display: flex;
     flex-direction: column;
-    gap: $spacing-sm;
-  }
-
-  &__item {
-    @include flex-start;
-    gap: $spacing-md;
-    padding: $spacing-md;
-    border-radius: $radius-md;
-    color: $gray-700;
-    transition: all $transition-base;
-
-    &:hover {
-      background-color: $gray-100;
-      color: $primary-color;
-    }
-
-    &--active {
-      background-color: #e0f7fa;
-      border-left: 4px solid $primary-color;
-      color: $primary-color;
-      font-weight: $font-weight-semibold;
-
-      .sidebar__icon {
-        color: $primary-color;
-      }
-    }
-  }
-
-  &__icon {
-    color: $gray-600;
-    width: 20px;
-    text-align: center;
-  }
+    align-items: center;
+    padding-top: 1rem;       
+    padding-bottom: 1rem;   
+    gap: 0.5rem;            
 }
 
-@include respond-to(md) {
-  .sidebar {
-    display: none;
-  }
+.sidebar-btn {
+    // Styles de base du bouton
+    width: 90%; 
+    padding-top: 0.5rem;    
+    padding-bottom: 0.5rem; 
+    transition: color 150ms ease-in-out, transform 150ms ease-in-out;
+    cursor: pointer;
+    
+    &.navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem; 
+        
+        .icon {
+            font-size: 1.125rem;
+            transition: transform 100ms ease-out; 
+        }
+        .text {
+            font-size: 0.75rem;
+        }
+
+        &:hover {
+            .icon, .text {
+                transform: scale(1.03); 
+            }
+        }
+    }
+
+    &.active {
+        color: $color-primary; 
+        background-color: $color-primary-light;
+        border-radius: 0.5rem; 
+        
+        margin-bottom: 1rem; 
+    }
+
+    &:not(.active) {
+        color: $color-gray-text;
+        
+        &:hover {
+            color: $color-primary;
+        }
+    }
+
+    // Boutons de bas de page (Déconnexion)
+    &.logout-btn {
+        margin-top: auto; 
+        margin-bottom: 0.5rem; 
+        display: flex;
+        justify-content: center;
+        
+        // ⬆️ Amélioration : Augmenter la zone de clic
+        padding: 0.75rem; 
+        
+        // Style de survol spécifique à la déconnexion
+        &:hover {
+            color: #ef4444; 
+            transform: scale(1.1); /* Effet zoom pour le déconnexion */
+        }
+    }
 }

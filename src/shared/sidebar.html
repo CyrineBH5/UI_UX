@@ -1,0 +1,146 @@
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SideBar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../style.css"> 
+    
+</head>
+
+<body class="bg-gray-100">
+
+    <aside class="w-20 bg-white border-r border-gray-200 flex flex-col items-center py-2 gap-1 shadow-sm h-[calc(111vh-80px)]">
+        
+        <button class="flex flex-col items-center gap-0.5 text-[#09B0BF] bg-[#09B0BF] bg-opacity-10 p-2 rounded-lg w-full py-1.5 transition-colors">
+            <i class="fas fa-th-large text-lg"></i> 
+            <span class="text-xs">Dashboard</span>
+        </button>
+
+        <button class="flex flex-col items-center gap-0.5 text-gray-600 hover:text-[#09B0BF] transition-colors w-full py-1.5">
+            <i class="fas fa-book-open text-lg"></i>
+            <span class="text-xs">Matières</span>
+        </button>
+        
+        <button class="flex flex-col items-center gap-0.5 text-gray-600 hover:text-[#09B0BF] transition-colors w-full py-1.5">
+            <i class="fas fa-calendar-alt text-lg"></i>
+            <span class="text-xs">Calendrier</span>
+        </button>
+        
+        <button class="flex flex-col items-center gap-0.5 text-gray-600 hover:text-[#09B0BF] transition-colors w-full py-1.5">
+            <i class="fas fa-file-alt text-lg"></i>
+            <span class="text-xs">Examens</span>
+        </button>
+        
+        <button class="flex flex-col items-center gap-0.5 text-gray-600 hover:text-[#09B0BF] transition-colors w-full py-1.5">
+            <i class="fas fa-tasks text-lg"></i>
+            <span class="text-xs">Tâches</span>
+        </button>
+        
+        <button class="flex flex-col items-center gap-0.5 text-gray-600 hover:text-[#09B0BF] transition-colors w-full py-1.5">
+            <i class="fas fa-folder-open text-lg"></i>
+            <span class="text-xs">Document</span>
+        </button>
+
+        <button class="flex flex-col items-center gap-0.5 text-gray-600 hover:text-[#09B0BF] transition-colors w-full py-1.5">
+            <i class="fas fa-question-circle text-lg"></i>
+            <span class="text-xs">FAQ</span>
+        </button>
+        
+        <button class="flex flex-col items-center gap-0.5 text-gray-600 hover:text-[#09B0BF] transition-colors w-full py-1.5">
+            <i class="fas fa-users text-lg"></i>
+            <span class="text-xs">Entraide</span>
+        </button>
+        
+        <button class="flex flex-col items-center gap-0.5 text-gray-600 hover:text-[#09B0BF] transition-colors w-full py-1.5">
+            <i class="fas fa-save text-lg"></i>
+            <span class="text-xs">Enregistrement</span>
+        </button>
+
+        <button class="flex items-center justify-center text-gray-600 hover:text-red-500 transition-colors w-full py-2 mb-2 mt-auto">
+            <i class="fas fa-sign-out-alt text-lg"></i>
+        </button>
+
+    </aside>
+</body> 
+</html> -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SideBar</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../style.css"> 
+    
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    
+    <div class="flex flex-1 overflow-hidden">
+        
+        <aside class="app-sidebar">
+            
+            <button class="sidebar-btn navigation active">
+                <i class="icon fas fa-th-large"></i> 
+                <span class="text">Dashboard</span>
+            </button>
+
+            <button class="sidebar-btn navigation">
+                <i class="icon fas fa-book-open"></i>
+                <span class="text">Matières</span>
+            </button>
+            
+            <button class="sidebar-btn navigation">
+                <i class="icon fas fa-calendar-alt"></i>
+                <span class="text">Calendrier</span>
+            </button>
+            
+            <button class="sidebar-btn navigation">
+                <i class="icon fas fa-file-alt"></i>
+                <span class="text">Examens</span>
+            </button>
+            
+            <button class="sidebar-btn navigation">
+                <i class="icon fas fa-tasks"></i>
+                <span class="text">Tâches</span>
+            </button>
+            
+            <button class="sidebar-btn navigation">
+                <i class="icon fas fa-folder-open"></i>
+                <span class="text">Document</span>
+            </button>
+
+            <button class="sidebar-btn navigation">
+                <i class="icon fas fa-question-circle"></i>
+                <span class="text">FAQ</span>
+            </button>
+            
+            <button class="sidebar-btn navigation">
+                <i class="icon fas fa-users"></i>
+                <span class="text">Entraide</span>
+            </button>
+            
+            <button class="sidebar-btn navigation">
+                <i class="icon fas fa-save"></i>
+                <span class="text">Enregistrement</span>
+            </button>
+
+            <button class="sidebar-btn logout-btn">
+                <i class="fas fa-sign-out-alt text-lg"></i>
+            </button>
+
+        </aside>
+
+      
+        
+    </div>
+
+</body> 
+</html>

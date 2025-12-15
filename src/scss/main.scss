@@ -12,6 +12,7 @@
 // 3. LAYOUT (Structure : Header, Footer, Sidebar, etc.)
 @import 'layout/header'; // Importe src/scss/layout/_header.scss
 @import 'layout/footer';
+@import 'layout/sidebar';
 // @import 'layout/sidebar'; // Si vous en avez un
 
 // 4. COMPONENTS (Boutons, cartes, formulaires, etc.)
