@@ -6,487 +6,142 @@
     <title>Digital Minds - Examens et corrections</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-        }
-
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 70px;
-            width: 80px;
-            height: calc(100vh - 70px);
-            background: white;
-            border-right: 1px solid #e0e0e0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 20px;
-            z-index: 10;
-        }
-
-        .sidebar-item {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s;
-            color: #666;
-        }
-
-        .sidebar-item:hover {
-            background-color: #f0f0f0;
-        }
-
-        .sidebar-item.active {
-            color: #17a2b8;
-            background-color: #e8f8fa;
-            border-bottom: 3px solid #17a2b8;
-        }
-
-        .sidebar-item i {
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-item span {
-            font-size: 11px;
-            text-align: center;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
-            color: white;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .header-search {
-            flex: 1;
-            max-width: 400px;
-            margin: 0 40px;
-        }
-
-        .header-search input {
-            width: 100%;
-            padding: 10px 15px 10px 40px;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-        }
-
-        .header-search-wrapper {
-            position: relative;
-        }
-
-        .header-search-wrapper i {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .notification-icon {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .notification-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #ff4444;
-            color: white;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: bold;
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #fff;
-            cursor: pointer;
-        }
-
-        .main-content {
-            margin-left: 80px;
-            margin-top: 70px;
-            padding: 30px;
-        }
-
-        .page-title {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 25px;
-            color: #333;
-        }
-
-        .search-section {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            display: flex;
-            gap: 15px;
-        }
-
-        .search-input-wrapper {
-            flex: 1;
-            position: relative;
-        }
-
-        .search-input-wrapper input {
-            width: 100%;
-            padding: 12px 15px 12px 45px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-            font-size: 14px;
-        }
-
-        .search-input-wrapper i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
-        }
-
-        .search-btn {
-            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
-            color: white;
-            padding: 12px 35px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .search-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
-        }
-
-        .exam-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-
-        .exam-card:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-        }
-
-        .exam-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .exam-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .exam-tags {
-            display: flex;
-            gap: 8px;
-        }
-
-        .tag {
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .tag-revision {
-            background: #e8e4f3;
-            color: #6c5ce7;
-        }
-
-        .tag-figma {
-            background: #fce8f3;
-            color: #e84393;
-        }
-
-        .exam-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            color: #666;
-            font-size: 14px;
-        }
-
-        .exam-info i {
-            margin-right: 5px;
-        }
-
-        .exam-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .action-btn {
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            color: #666;
-        }
-
-        .action-btn:hover {
-            background: #f0f0f0;
-            color: #17a2b8;
-        }
-
-        .exam-description {
-            color: #666;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-
-        .correction-card {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 18px;
-            margin-top: 10px;
-            border-left: 3px solid #17a2b8;
-        }
-
-        .correction-title {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .fab-button {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 16px rgba(23, 162, 184, 0.4);
-            transition: all 0.3s;
-        }
-
-        .fab-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(23, 162, 184, 0.5);
-        }
-
-        .expandable-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .expandable-content.expanded {
-            max-height: 500px;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/exams.css"> 
+    <script src="../js/load-components.js" defer></script>
 </head>
-<body>
-    <!-- Header -->
-    <div class="header">
-        <div class="logo">Digital Minds</div>
-        <div class="header-search">
-            <div class="header-search-wrapper">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search">
-            </div>
-        </div>
-        <div class="header-right">
-            <div class="notification-icon">
-                <i class="fas fa-bell" style="font-size: 20px;"></i>
-                <div class="notification-badge">3</div>
-            </div>
-            <div class="user-avatar">
-                <img src="https://ui-avatars.com/api/?name=User&background=17a2b8&color=fff" alt="User" style="width: 100%; height: 100%; border-radius: 50%;">
-            </div>
-        </div>
-    </div>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-item">
-            <i class="fas fa-book"></i>
-            <span>Matières</span>
-        </div>
-        <div class="sidebar-item">
-            <i class="fas fa-calendar"></i>
-            <span>Calendrier</span>
-        </div>
-        <div class="sidebar-item active">
-            <i class="fas fa-file-alt"></i>
-            <span>Examens</span>
-        </div>
-        <div class="sidebar-item">
-            <i class="fas fa-tasks"></i>
-            <span>Tâches</span>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1 class="page-title">Examens et corrections</h1>
-
-        <!-- Search Section -->
-        <div class="search-section">
-            <div class="search-input-wrapper">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Chercher un examen ...">
-            </div>
-            <button class="search-btn">Rechercher</button>
+<body class="flex flex-col min-h-screen">
+    
+    <div id="header-placeholder">
         </div>
 
-        <!-- Exam Cards -->
-        <div id="examsContainer">
-            <!-- Exam 1: UX/UI Design -->
-            <div class="exam-card">
-                <div class="exam-header">
-                    <div>
-                        <div class="exam-title">
-                            Examen : UX/UI Design
-                            <div class="exam-tags">
-                                <span class="tag tag-revision">Révision</span>
-                                <span class="tag tag-figma">Figma</span>
-                            </div>
-                        </div>
+    <div class="flex flex-1">
+        <div id="sidebar-placeholder" class="shrink-0">
+             </div>
+
+<main class="flex-1 py-6 pl-4 pr-6 bg-gray-50 overflow-y-auto">
+            <div class="main-content">
+                <h1 class="page-title">Examens et corrections</h1>
+
+                <div class="search-section flex gap-4 mb-8"> 
+                    <div class="search-input-wrapper relative flex-1">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" placeholder="Chercher un examen ..." class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
                     </div>
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <div class="exam-info">
-                            <span><i class="far fa-calendar"></i>Date 27 Nov 2025</span>
-                        </div>
-                        <div class="exam-actions">
-                            <div class="action-btn" title="Voir">
-                                <i class="far fa-eye"></i>
-                            </div>
-                            <div class="action-btn" title="Pin">
-                                <i class="fas fa-thumbtack"></i>
-                            </div>
-                            <div class="action-btn expand-btn" onclick="toggleExpand(this)">
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="search-btn px-6 py-3 bg-cyan-600 text-white font-semibold rounded-lg hover:bg-cyan-700 transition duration-200">Rechercher</button>
                 </div>
-                <div class="expandable-content">
-                    <div class="exam-description">Description</div>
-                    <div class="correction-card">
-                        <div class="correction-title">Correction examen : UX/UI Design</div>
-                        <div class="exam-description">Description</div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Exam 2: Architecture Orientée Services -->
-            <div class="exam-card">
-                <div class="exam-header">
-                    <div>
-                        <div class="exam-title">
-                            Examen : Architecture Orientée Services (SOA)
-                            <div class="exam-tags">
-                                <span class="tag tag-revision">Révision</span>
-                                <span class="tag tag-figma">Figma</span>
+                <div id="examsContainer" class="space-y-4">
+                    
+                    <div class="exam-card">
+                        <div class="exam-header">
+                            <div class="exam-title-group">
+                                <div class="exam-title">Examen : UX/UI Design</div>
+                                <div class="exam-tags">
+                                    <span class="tag tag-revision">Révision</span>
+                                    <span class="tag tag-figma">Figma</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4"> 
+                                <div class="exam-info">
+                                    <span><i class="far fa-calendar"></i>Date 27 Nov 2025</span>
+                                </div>
+                                <div class="exam-actions">
+                                    <div class="action-btn" title="Voir">
+                                        <i class="far fa-eye"></i>
+                                    </div>
+                                    <div class="action-btn" title="Pin">
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                    <div class="action-btn expand-btn" onclick="toggleExpand(this)">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="expandable-content">
+                            <div class="exam-description">Ce module porte sur les principes fondamentaux du Design UX/UI et leur application pratique via Figma.</div>
+                            <div class="correction-card">
+                                <div class="correction-title">Correction examen : UX/UI Design</div>
+                                <div class="exam-description">La correction est disponible dans le dossier Google Drive pour le module Figma.</div>
                             </div>
                         </div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <div class="exam-info">
-                            <span><i class="far fa-calendar"></i>Date 27 Nov 2025</span>
+
+                    <div class="exam-card">
+                        <div class="exam-header">
+                            <div class="exam-title-group">
+                                <div class="exam-title">Examen : Architecture Orientée Services (SOA)</div>
+                                <div class="exam-tags">
+                                    <span class="tag tag-revision">Révision</span>
+                                    <span class="tag tag-figma">SOA</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="exam-info">
+                                    <span><i class="far fa-calendar"></i>Date 27 Nov 2025</span>
+                                </div>
+                                <div class="exam-actions">
+                                    <div class="action-btn" title="Voir">
+                                        <i class="far fa-eye"></i>
+                                    </div>
+                                    <div class="action-btn" title="Pin">
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                    <div class="action-btn expand-btn" onclick="toggleExpand(this)">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="exam-actions">
-                            <div class="action-btn" title="Voir">
-                                <i class="far fa-eye"></i>
-                            </div>
-                            <div class="action-btn" title="Pin">
-                                <i class="fas fa-thumbtack"></i>
-                            </div>
-                            <div class="action-btn expand-btn" onclick="toggleExpand(this)">
-                                <i class="fas fa-chevron-down"></i>
+                        
+                    </div>
+
+                        <div class="expandable-content">
+                            <div class="exam-description">Évaluation des connaissances sur les concepts Microservices, API REST et les patterns de communication.</div>
+                            <div class="correction-card">
+                                <div class="correction-title">Correction examen : Architecture Orientée Services (SOA)</div>
+                                <div class="exam-description">Correction des QCM et des exercices pratiques.</div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="expandable-content">
-                    <div class="exam-description">Description</div>
-                    <div class="correction-card">
-                        <div class="correction-title">Correction examen : Architecture Orientée Services (SOA)</div>
-                        <div class="exam-description">Description</div>
-                    </div>
+                     <div class="exam-card">
+                        <div class="exam-header">
+                            <div class="exam-title-group">
+                                <div class="exam-title">Examen : Développement côté backend SpringBoot</div>
+                                <div class="exam-tags">
+                                    <span class="tag tag-revision">Révision</span>
+                                    <span class="tag tag-figma">SpringBoot</span>
+
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4"> 
+                                <div class="exam-info">
+                                    <span><i class="far fa-calendar"></i>Date 27 Nov 2025</span>
+                                </div>
+                                <div class="exam-actions">
+                                    <div class="action-btn" title="Voir">
+                                        <i class="far fa-eye"></i>
+                                    </div>
+                                    <div class="action-btn" title="Pin">
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                    <div class="action-btn expand-btn" onclick="toggleExpand(this)">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- FAB Button -->
-    <div class="fab-button" title="Nouvelle conversation">
-        <i class="fas fa-comments"></i>
+        </main>
+    </div> 
+    <div class="fab-button fixed bottom-6 right-6 w-14 h-14 bg-cyan-600 rounded-full shadow-lg flex items-center justify-center text-white cursor-pointer hover:bg-cyan-700 transition duration-300 z-50" title="ChatBot AI">
+        <i class="fas fa-comments text-xl"></i>
     </div>
 
     <script>
@@ -512,8 +167,8 @@
             console.log('Recherche:', searchInput);
         });
 
-        // Sidebar navigation
-        document.querySelectorAll('.sidebar-item').forEach(item => {
+        // Sidebar navigation (Ceci nécessite que le contenu de la sidebar soit déjà chargé)
+     document.querySelectorAll('.sidebar-item').forEach(item => {
             item.addEventListener('click', function() {
                 document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
                 this.classList.add('active');
