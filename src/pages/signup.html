@@ -61,4 +61,10 @@
 </div>
 
 </body>
+<script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Empêche le rechargement de la page
+        window.location.href = 'signin.html'; // Redirige vers le calendrier
+    });
+</script>
 </html>
