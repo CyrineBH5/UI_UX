@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI_UX - Projet d'Équipe</title>
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #F7FAFC;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      h1 {
+        color: #1AACAC;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        color: #2D3748;
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .intro {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        margin-bottom: 2rem;
+      }
+
+      .modules {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .module-card {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .module-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      .module-card h3 {
+        color: #1AACAC;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      .module-card p {
+        color: #4A5568;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .module-card a {
+        display: inline-block;
+        background-color: #1AACAC;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .module-card a:hover {
+        background-color: #158a8a;
+      }
+
+      .team {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        margin-top: 2rem;
+      }
+
+      .team ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .team li {
+        padding: 0.5rem 0;
+        color: #4A5568;
+      }
+
+      .team li i {
+        color: #1AACAC;
+        margin-right: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎓 UI_UX - Projet d'Équipe</h1>
+
+      <div class="intro">
+        <p><strong>Bienvenue dans le projet UI_UX !</strong></p>
+        <p>Ce projet regroupe le travail de toute l'équipe. Chaque membre a son propre espace dédié dans <code>src/pages/</code>.</p>
+      </div>
+
+      <h2>📂 Modules Disponibles</h2>
+
+      <div class="modules">
+        <div class="module-card">
+          <h3>📚 Digital Minds</h3>
+          <p>Système de gestion de matières et publications pour étudiants et enseignants.</p>
+          <p><strong>Fonctionnalités :</strong></p>
+          <ul>
+            <li>Liste des matières</li>
+            <li>Publications (récentes, populaires)</li>
+            <li>Filtres avancés</li>
+            <li>Pagination</li>
+          </ul>
+          <a href="src/pages/digital_minds/matieres-complete.html">
+            <i class="fas fa-arrow-right"></i> Voir le module
+          </a>
+        </div>
+
+        <!-- Ajoutez ici les autres modules de l'équipe -->
+        <div class="module-card" style="opacity: 0.6;">
+          <h3>🔜 Module 2</h3>
+          <p>À venir...</p>
+          <p>Espace réservé pour un autre membre de l'équipe.</p>
+        </div>
+
+        <div class="module-card" style="opacity: 0.6;">
+          <h3>🔜 Module 3</h3>
+          <p>À venir...</p>
+          <p>Espace réservé pour un autre membre de l'équipe.</p>
+        </div>
+      </div>
+
+      <div class="team">
+        <h2>👥 Équipe Digital Minds</h2>
+        <ul>
+          <li><i class="fas fa-user"></i> Ayoub Belhameid</li>
+          <li><i class="fas fa-user"></i> Cyrine Ben Hlila</li>
+          <li><i class="fas fa-user"></i> Farah Hammami</li>
+          <li><i class="fas fa-user"></i> Fedi Mbarek</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

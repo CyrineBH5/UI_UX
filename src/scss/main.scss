@@ -1,0 +1,38 @@
+// ============================================
+// UI_UX - FICHIER SCSS PRINCIPAL
+// ============================================
+
+// Variables SASS globales
+$teal-brand: #1AACAC;
+$yellow-btn: #E0A83F;
+$gray-bg: #F7FAFC;
+$card-radius: 16px;
+$sidebar-width: 80px;
+
+// Styles de base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: $gray-bg;
+  overflow-x: hidden;
+}
+
+// ============================================
+// IMPORT DES COMPOSANTS PARTAGÉS
+// ============================================
+@import "components/sidebar";
+@import "components/navbar";
+@import "components/filter";
+@import "components/publish";
+@import "components/publications-content"; // Styles de contenu uniquement (sans duplication sidebar/navbar)
+@import "components/publications";
+
+// ============================================
+// IMPORT DES PAGES
+// ============================================
+@import "pages/digital_minds";

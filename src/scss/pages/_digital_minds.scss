@@ -1,0 +1,244 @@
+// ============================================
+// DIGITAL MINDS - STYLES SPÉCIFIQUES
+// ============================================
+
+// Variables SASS
+$teal-brand: #1AACAC;
+$yellow-btn: #E0A83F;
+$gray-bg: #F7FAFC;
+$card-radius: 16px;
+$sidebar-width: 80px;
+
+// Main content
+.main-content {
+  margin-left: $sidebar-width;
+  margin-top: 64px;
+  padding: 2rem;
+  min-height: calc(100vh - 64px);
+}
+
+// Content header
+.content-header {
+  margin-bottom: 2rem;
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2D3748;
+  }
+}
+
+// Filter and view section
+.filter-view-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+// Filter button
+.filter-btn {
+  background-color: $yellow-btn;
+  color: #2D3748;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(224, 168, 63, 0.3);
+
+  &:hover {
+    background-color: darken($yellow-btn, 5%);
+    box-shadow: 0 4px 12px rgba(224, 168, 63, 0.4);
+    transform: translateY(-2px);
+  }
+}
+
+// Publish button
+.publish-btn {
+  background-color: $teal-brand;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(26, 172, 172, 0.3);
+
+  &:hover {
+    background-color: darken($teal-brand, 5%);
+    box-shadow: 0 4px 12px rgba(26, 172, 172, 0.4);
+    transform: translateY(-2px);
+  }
+}
+
+// View toggle buttons
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+  background-color: #B2DFDB;
+  padding: 0.5rem;
+  border-radius: 8px;
+
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    color: #2D3748;
+
+    &.active {
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &:hover:not(.active) {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+// Cards grid
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.subject-card {
+  background-color: white;
+  border-radius: $card-radius;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .card-title {
+    padding: 1.25rem;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #2D3748;
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  padding-bottom: 2rem;
+
+  button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background-color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #4A5568;
+    font-weight: 500;
+
+    &:hover:not(:disabled) {
+      background-color: $teal-brand;
+      color: white;
+    }
+
+    &.active {
+      background-color: $teal-brand;
+      color: white;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .dots {
+    color: #A0AEC0;
+    padding: 0 0.5rem;
+  }
+}
+
+// Floating chat button
+.chat-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background-color: $teal-brand;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26, 172, 172, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 50;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(26, 172, 172, 0.5);
+  }
+
+  svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 60px;
+    padding: 1rem;
+  }
+
+  .filter-view-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cards-grid {
+    gap: 16px;
+  }
+}
+

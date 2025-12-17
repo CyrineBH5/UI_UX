@@ -1,0 +1,32 @@
+﻿
+FullName                                                                                                    
+--------                                                                                                    
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src                                                 
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\CHECKLIST_COMMIT.md                                 
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\index.html                                          
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\README.md                                           
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\STRUCTURE.txt                                       
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\styles.css                                          
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\pages                                           
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\scss                                            
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\pages\digital_minds                             
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\pages\digital_minds\assets                      
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\pages\digital_minds\matieres-clean.html         
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\pages\digital_minds\matieres.html               
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\pages\digital_minds\mes-publications.html       
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\pages\digital_minds\publications-populaires.html
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\pages\digital_minds\publications-recentes.html  
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\pages\digital_minds\README.md                   
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\pages\digital_minds\assets\vite.svg             
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\scss\components                                 
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\scss\pages                                      
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\scss\main.scss                                  
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\scss\components\_filter.scss                    
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\scss\components\_navbar.scss                    
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\scss\components\_publications-static.scss       
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\scss\components\_publications.scss              
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\scss\components\_publish.scss                   
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\scss\components\_sidebar.scss                   
+C:\Users\HP\Desktop\Integration WEB\digital-minds\UI_UX\src\scss\pages\_digital_minds.scss                  
+
+
