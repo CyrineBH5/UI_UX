@@ -9,20 +9,58 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="../css/matieres.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Styles UI_UX -->
-    <link rel="stylesheet" href="../../scss/main.scss">
+    <style>
+      
+    </style>
   </head>
   <body>
-    <!-- ========================================== -->
-    <!-- NAVBAR & SIDEBAR - COMPOSANTS PARTAGÉS UI_UX -->
-    <!-- À INCLURE ICI PAR L'ÉQUIPE                -->
-    <!-- ========================================== -->
-    
-    <!-- Main Content - CONTENU SPÉCIFIQUE DIGITAL_MINDS -->
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-item active">
+        <i class="icon fas fa-book"></i>
+        <span class="label">Matières</span>
+      </div>
+      <div class="sidebar-item">
+        <i class="icon fas fa-calendar-alt"></i>
+        <span class="label">Calendrier</span>
+      </div>
+      <div class="sidebar-item">
+        <i class="icon fas fa-file-alt"></i>
+        <span class="label">Examen</span>
+      </div>
+      <div class="sidebar-item">
+        <i class="icon fas fa-check-circle"></i>
+        <span class="label">Tâches</span>
+      </div>
+      <a href="exam.html" class="sidebar-item">
+        <i class="icon fas fa-newspaper"></i>
+        <span class="label">Publications</span>
+      </a>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="logo">Digital Minds</div>
+
+      <div class="search-bar">
+        <i class="search-icon fas fa-search"></i>
+        <input type="search" placeholder="Search" aria-label="Rechercher">
+      </div>
+
+      <div class="user-section">
+        <div class="notification-bell">
+          <i class="fas fa-bell" style="color: white; font-size: 20px;"></i>
+          <span class="badge">1</span>
+        </div>
+        <img src="https://i.pravatar.cc/150?img=47" alt="Avatar utilisateur" class="user-avatar">
+      </div>
+    </header>
+
+    <!-- Main Content -->
     <main class="main-content">
       <!-- Header Section -->
       <div class="content-header">
@@ -32,25 +70,20 @@
       <!-- Filter and View Section -->
       <div class="filter-view-section">
         <div style="display: flex; gap: 1rem;">
-          <button class="filter-btn">
+          <a href="#filterModal" class="filter-btn">
             <span>Filtrer une matière</span>
             <i class="fas fa-chevron-down"></i>
-          </button>
-
-          <button class="publish-btn" id="publishBtn">
-            <i class="fas fa-plus"></i>
-            <span>Nouvelle publication</span>
-          </button>
+          </a>
         </div>
 
         <div class="view-toggle-section">
           <span class="view-label">Affichage</span>
           <div class="view-toggle">
-            <button id="tableView" class="view-btn active" aria-label="Vue tableau">
+            <button class="view-btn active">
               <i class="fas fa-th"></i>
               <span class="view-text">Tableau</span>
             </button>
-            <button id="listView" class="view-btn" aria-label="Vue liste">
+            <button class="view-btn">
               <i class="fas fa-list"></i>
               <span class="view-text">Liste</span>
             </button>
@@ -155,6 +188,144 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
       </svg>
     </button>
+
+    <!-- Filter Modal -->
+    <div id="filterModal" class="modal">
+      <a href="#" class="modal-overlay"></a>
+      <div class="modal-content">
+        <a href="#" class="modal-close">&times;</a>
+
+        <div class="modal-header">
+          <h2 class="modal-title">Filtrer une matière</h2>
+          <p class="modal-subtitle">Sélectionnez les critères de filtrage pour affiner votre recherche</p>
+        </div>
+
+        <form class="modal-form">
+          <div class="form-field">
+            <label class="form-label" for="filterSubject">Matière</label>
+            <select id="filterSubject" class="form-select">
+              <option value="" disabled selected>Sélectionner une matière</option>
+              <option value="programmation">Programmation linéaire</option>
+              <option value="communication">Communication entreprise</option>
+              <option value="bdd">Administration Base de données</option>
+              <option value="uml">Conception UML</option>
+              <option value="javascript">JavaScript côté Serveur</option>
+              <option value="uiux">UI/UX Design</option>
+              <option value="mobile">Développement Mobile</option>
+              <option value="securite">Sécurité Informatique</option>
+              <option value="ia">Intelligence Artificielle</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="filterLevel">Niveau</label>
+            <select id="filterLevel" class="form-select">
+              <option value="" disabled selected>Sélectionner un niveau</option>
+              <option value="annee1">Première année</option>
+              <option value="annee2">Deuxième année</option>
+              <option value="annee3">Troisième année</option>
+              <option value="annee4">Quatrième année</option>
+              <option value="annee5">Cinquième année</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="filterPeriod">Période</label>
+            <select id="filterPeriod" class="form-select">
+              <option value="" disabled selected>Sélectionner une période</option>
+              <option value="today">Aujourd'hui</option>
+              <option value="week">Cette semaine</option>
+              <option value="month">Ce mois</option>
+              <option value="semester">Ce semestre</option>
+              <option value="year">Cette année</option>
+            </select>
+          </div>
+
+          <div class="modal-actions">
+            <a href="#" class="btn-modal btn-cancel">Annuler</a>
+            <button type="submit" class="btn-modal btn-validate">Valider</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Publish Modal -->
+    <div id="publishModal" class="modal">
+      <a href="#" class="modal-overlay"></a>
+      <div class="modal-content large">
+        <a href="#" class="modal-close">&times;</a>
+
+        <div class="modal-header">
+          <h2 class="modal-title large">Nouvelle publication</h2>
+          <p class="modal-subtitle green">Information de publications</p>
+        </div>
+
+        <form class="modal-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="pubSubject">Matière *</label>
+              <select id="pubSubject" class="form-select" required>
+                <option value="" disabled selected>Sélectionner une matière</option>
+                <option value="programmation">Programmation linéaire</option>
+                <option value="communication">Communication entreprise</option>
+                <option value="bdd">Administration Base de données</option>
+                <option value="uml">Conception UML</option>
+                <option value="javascript">JavaScript côté Serveur</option>
+                <option value="uiux">UI/UX Design</option>
+                <option value="mobile">Développement Mobile</option>
+                <option value="securite">Sécurité Informatique</option>
+                <option value="ia">Intelligence Artificielle</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="pubLevel">Niveau *</label>
+              <select id="pubLevel" class="form-select" required>
+                <option value="" disabled selected>Sélectionner un niveau</option>
+                <option value="annee1">Première année</option>
+                <option value="annee2">Deuxième année</option>
+                <option value="annee3">Troisième année</option>
+                <option value="annee4">Quatrième année</option>
+                <option value="annee5">Cinquième année</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="pubTitle">Titre de la publication *</label>
+            <input type="text" id="pubTitle" class="form-input" placeholder="Ex: Introduction aux algorithmes de tri" required>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="pubDescription">Description *</label>
+            <textarea id="pubDescription" class="form-textarea" placeholder="Décrivez votre publication en détail..." required></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="pubType">Type de contenu *</label>
+              <select id="pubType" class="form-select" required>
+                <option value="" disabled selected>Sélectionner un type</option>
+                <option value="cours">Cours</option>
+                <option value="exercice">Exercice</option>
+                <option value="projet">Projet</option>
+                <option value="ressource">Ressource</option>
+                <option value="question">Question</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="pubTags">Tags (optionnel)</label>
+              <input type="text" id="pubTags" class="form-input" placeholder="Ex: algorithme, tri, complexité">
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <a href="#" class="btn-modal btn-cancel">Annuler</a>
+            <button type="submit" class="btn-modal btn-validate">Publier</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
-
