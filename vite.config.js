@@ -16,8 +16,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         matieres: resolve(__dirname, 'matieres.html'),
-        matieresComplete: resolve(__dirname, 'matieres-complete.html'),
-        publicationsRecent: resolve(__dirname, 'publications-recentes-complete.html')
+        publication: resolve(__dirname, 'publication.html'),
+        formPublication: resolve(__dirname, 'form_pub.html')
       }
     }
   },
