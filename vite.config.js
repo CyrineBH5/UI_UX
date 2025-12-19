@@ -2,35 +2,42 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  // Configuration de base pour Vite
   root: './',
   publicDir: 'public',
-  
-  // Configuration du serveur de développement
-  server: {
+    server: {
     port: 3000,
     open: true,
   },
   
-  // Configuration du build
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        matieres: resolve(__dirname, 'src/pages/digital_minds/matieres.html'),
+        matieres: resolve(__dirname, 'matieres.html'),
+        matieresComplete: resolve(__dirname, 'matieres-complete.html'),
+        publicationsRecent: resolve(__dirname, 'publications-recentes-complete.html')
       }
     }
   },
   
-  // Configuration CSS/SCSS
   css: {
     preprocessorOptions: {
       scss: {
         additionalData: `@import "./src/scss/main.scss";`
       }
     }
+  },
+  
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+      '@assets': resolve(__dirname, 'src/assets'),
+      '@css': resolve(__dirname, 'src/css'),
+      '@js': resolve(__dirname, 'src/js'),
+      '@pages': resolve(__dirname, 'src/pages'),
+      '@scss': resolve(__dirname, 'src/scss')
+    }
   }
 })
-
