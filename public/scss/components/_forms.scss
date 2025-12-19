@@ -1,0 +1,95 @@
+/* --- Variables SCSS (Optionnel mais recommandé) --- */
+$primary-color: #3b82f6; // Blue-500 par défaut de Tailwind
+$success-color: #10b981; // Green-500
+$warning-color: #f59e0b; // Amber-500
+$danger-color: #ef4444; // Red-500
+$basse-color: #fde047; // Yellow-300
+$haute-color: #ef4444; // Red-500
+
+.modal-content-planning {
+    @apply p-8; // Assurez-vous d'avoir un bon padding intérieur
+}
+
+/* --- Styles des Inputs Principaux (Matière, Date, Estimation) --- */
+.input-group {
+    @apply relative flex items-center bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition duration-150;
+    
+    .form-select, .form-input {
+        @apply w-full py-2.5 px-4 bg-transparent text-gray-800 appearance-none outline-none;
+    }
+
+    .form-select {
+        @apply pr-10; // Espace pour l'icône/placeholder
+    }
+
+    i {
+        @apply absolute right-4 text-xl;
+    }
+}
+
+/* --- Section Ajouter/Tâche Génération --- */
+.task-line-input {
+    @apply flex items-center bg-white border-2 border-dashed border-gray-300 rounded-lg p-3 gap-3;
+    
+    .form-input-task {
+        @apply p-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-green-500 outline-none;
+    }
+    
+    .priority-select {
+        @apply relative bg-gray-100 px-3 py-2 rounded-md flex items-center cursor-pointer hover:bg-gray-200 transition;
+        span, i {
+            @apply pointer-events-none;
+        }
+    }
+
+    .generation-btn {
+        @apply flex items-center px-4 py-2 bg-green-100 text-green-700 rounded-lg font-medium shadow-sm hover:bg-green-200 transition whitespace-nowrap;
+    }
+    
+    .add-task-btn {
+        @apply w-12 h-12 flex items-center justify-center bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition flex-shrink-0;
+    }
+}
+
+/* --- Styles des Tâches Existantess --- */
+.existing-task {
+    @apply flex items-center justify-between bg-white border border-gray-200 rounded-lg p-4 shadow-sm;
+    
+    .task-title {
+        @apply text-lg font-medium text-gray-800 flex-1;
+    }
+
+    .priority-display {
+        @apply px-4 py-1 rounded-full text-sm font-semibold text-gray-800 flex-shrink-0 w-24 text-center mr-6;
+        &.priority-basse {
+            background-color: $basse-color; // Utilisez la variable SCSS ou une couleur Tailwind directe
+        }
+        &.priority-haute {
+            background-color: $danger-color;
+            @apply text-white;
+        }
+    }
+
+    .task-actions {
+        @apply flex gap-2 flex-shrink-0;
+    }
+
+    .action-btn {
+        @apply w-8 h-8 flex items-center justify-center rounded-md transition duration-150;
+        &.edit-btn {
+            @apply text-yellow-600 hover:bg-yellow-50;
+        }
+        &.delete-btn {
+            @apply text-red-600 hover:bg-red-50;
+        }
+    }
+}
+
+/* --- Styles des Boutons de Bas de Page --- */
+.cancel-btn {
+    @apply px-6 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition font-semibold;
+}
+
+.save-btn {
+    @apply px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition font-semibold;
+}

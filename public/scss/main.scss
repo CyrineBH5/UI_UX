@@ -1,0 +1,30 @@
+// src/scss/main.scss
+
+// 1. ABSTRACTS (Variables, Mixins)
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// 2. BASE (Styles globaux : Reset, Typography, Base)
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base'; 
+
+// 3. LAYOUT (Structure : Header, Footer, Sidebar, etc.)
+@import 'layout/header'; 
+@import 'layout/footer';
+@import 'layout/sidebar';
+
+
+@import 'components/exam_cards';
+@import 'components/button_chat'; 
+@import 'components/signin';
+
+// 4. COMPONENTS (Boutons, cartes, formulaires, etc.)
+// @import 'components/button'; 
+// @import 'components/card';
+
+// 5. PAGES (Styles spécifiques à une page)
+// @import 'pages/home'; 
+
+// 6. UTILITIES (Classes utilitaires non gérées par Tailwind)
+// @import 'utilities/helpers';
