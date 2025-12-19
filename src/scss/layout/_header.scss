@@ -1,0 +1,21 @@
+// _header.scss
+
+.main-header {
+    // Application de la couleur d'arrière-plan via la variable
+    background-color: $color-primary; 
+    
+    // Assurez-vous que le texte reste blanc comme dans votre HTML original
+    color: $color-white;
+
+    // Ajustement de la couleur de l'icône à l'intérieur de l'en-tête
+    .fa-brain {
+        color: $color-primary;
+    }
+
+    // Ajustement de l'état de survol (hover) pour les boutons
+    // button:hover {
+    //     // Une couleur légèrement plus foncée pour le contraste
+    //     background-color: darken($color-primary, 8%); 
+    // }
+    
+}

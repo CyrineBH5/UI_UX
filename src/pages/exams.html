@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Minds - Examens et corrections</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/exams.css"> 
+    <script src="../js/load-components.js" defer></script>
+</head>
+
+<body class="flex flex-col min-h-screen">
+    
+    <div id="header-placeholder">
+        </div>
+
+    <div class="flex flex-1">
+        <div id="sidebar-placeholder" class="shrink-0">
+             </div>
+
+<main class="flex-1 py-6 pl-4 pr-6 bg-gray-50 overflow-y-auto">
+            <div class="main-content">
+                <h1 class="page-title">Examens et corrections</h1>
+
+                <div class="search-section flex gap-4 mb-8"> 
+                    <div class="search-input-wrapper relative flex-1">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" placeholder="Chercher un examen ..." class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                    </div>
+                    <button class="search-btn px-6 py-3 bg-cyan-600 text-white font-semibold rounded-lg hover:bg-cyan-700 transition duration-200">Rechercher</button>
+                </div>
+
+                <div id="examsContainer" class="space-y-4">
+                    
+                    <div class="exam-card">
+                        <div class="exam-header">
+                            <div class="exam-title-group">
+                                <div class="exam-title">Examen : UX/UI Design</div>
+                                <div class="exam-tags">
+                                    <span class="tag tag-revision">Révision</span>
+                                    <span class="tag tag-figma">Figma</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4"> 
+                                <div class="exam-info">
+                                    <span><i class="far fa-calendar"></i>Date 27 Nov 2025</span>
+                                </div>
+                                <div class="exam-actions">
+                                    <div class="action-btn" title="Voir">
+                                        <i class="far fa-eye"></i>
+                                    </div>
+                                    <div class="action-btn" title="Pin">
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                    <div class="action-btn expand-btn" onclick="toggleExpand(this)">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="expandable-content">
+                            <div class="exam-description">Ce module porte sur les principes fondamentaux du Design UX/UI et leur application pratique via Figma.</div>
+                            <div class="correction-card">
+                                <div class="correction-title">Correction examen : UX/UI Design</div>
+                                <div class="exam-description">La correction est disponible dans le dossier Google Drive pour le module Figma.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exam-card">
+                        <div class="exam-header">
+                            <div class="exam-title-group">
+                                <div class="exam-title">Examen : Architecture Orientée Services (SOA)</div>
+                                <div class="exam-tags">
+                                    <span class="tag tag-revision">Révision</span>
+                                    <span class="tag tag-figma">SOA</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="exam-info">
+                                    <span><i class="far fa-calendar"></i>Date 27 Nov 2025</span>
+                                </div>
+                                <div class="exam-actions">
+                                    <div class="action-btn" title="Voir">
+                                        <i class="far fa-eye"></i>
+                                    </div>
+                                    <div class="action-btn" title="Pin">
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                    <div class="action-btn expand-btn" onclick="toggleExpand(this)">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                        <div class="expandable-content">
+                            <div class="exam-description">Évaluation des connaissances sur les concepts Microservices, API REST et les patterns de communication.</div>
+                            <div class="correction-card">
+                                <div class="correction-title">Correction examen : Architecture Orientée Services (SOA)</div>
+                                <div class="exam-description">Correction des QCM et des exercices pratiques.</div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="exam-card">
+                        <div class="exam-header">
+                            <div class="exam-title-group">
+                                <div class="exam-title">Examen : Développement côté backend SpringBoot</div>
+                                <div class="exam-tags">
+                                    <span class="tag tag-revision">Révision</span>
+                                    <span class="tag tag-figma">SpringBoot</span>
+
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4"> 
+                                <div class="exam-info">
+                                    <span><i class="far fa-calendar"></i>Date 27 Nov 2025</span>
+                                </div>
+                                <div class="exam-actions">
+                                    <div class="action-btn" title="Voir">
+                                        <i class="far fa-eye"></i>
+                                    </div>
+                                    <div class="action-btn" title="Pin">
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                    <div class="action-btn expand-btn" onclick="toggleExpand(this)">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                </div>
+            </div>
+        </main>
+    </div> 
+    <!-- <div class="fab-button fixed bottom-6 right-6 w-14 h-14 bg-cyan-600 rounded-full shadow-lg flex items-center justify-center text-white cursor-pointer hover:bg-cyan-700 transition duration-300 z-50" title="ChatBot AI">
+        <i class="fas fa-comments text-xl"></i>
+    </div> -->
+ <button class="fixed bottom-8 right-8 bg-cyan-600 text-white p-4 rounded-full shadow-lg hover:bg-cyan-700">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+        </svg>
+    </button>
+    <script>
+        function toggleExpand(btn) {
+            const card = btn.closest('.exam-card');
+            const content = card.querySelector('.expandable-content');
+            const icon = btn.querySelector('i');
+            
+            content.classList.toggle('expanded');
+            
+            if (content.classList.contains('expanded')) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+        // Search functionality
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            const searchInput = document.querySelector('.search-input-wrapper input').value;
+            console.log('Recherche:', searchInput);
+        });
+
+        // Sidebar navigation (Ceci nécessite que le contenu de la sidebar soit déjà chargé)
+     document.querySelectorAll('.sidebar-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

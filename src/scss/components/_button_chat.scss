@@ -1,0 +1,21 @@
+.fab-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px; /* Prend le dessus sur w-14/h-14 */
+    height: 60px; /* Prend le dessus sur w-14/h-14 */
+    background: $color-primary; /* Prend le dessus sur bg-cyan-600 */
+    
+    color: $color-white; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    // ... reste du style (shadow, transition, etc.)
+}
+
+.fab-button i {
+    color: $color-white;
+    font-size: 20px; /* La taille de l'icône */
+}
