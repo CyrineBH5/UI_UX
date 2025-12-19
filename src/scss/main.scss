@@ -1,38 +1,30 @@
-// ============================================
-// UI_UX - FICHIER SCSS PRINCIPAL
-// ============================================
+// src/scss/main.scss
 
-// Variables SASS globales
-$teal-brand: #1AACAC;
-$yellow-btn: #E0A83F;
-$gray-bg: #F7FAFC;
-$card-radius: 16px;
-$sidebar-width: 80px;
+// 1. ABSTRACTS (Variables, Mixins)
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
 
-// Styles de base
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+// 2. BASE (Styles globaux : Reset, Typography, Base)
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base'; 
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: $gray-bg;
-  overflow-x: hidden;
-}
+// 3. LAYOUT (Structure : Header, Footer, Sidebar, etc.)
+@import 'layout/header'; 
+@import 'layout/footer';
+@import 'layout/sidebar';
 
-// ============================================
-// IMPORT DES COMPOSANTS PARTAGÉS
-// ============================================
-@import "components/sidebar";
-@import "components/navbar";
-@import "components/filter";
-@import "components/publish";
-@import "components/publications-content"; // Styles de contenu uniquement (sans duplication sidebar/navbar)
-@import "components/publications";
 
-// ============================================
-// IMPORT DES PAGES
-// ============================================
-@import "pages/digital_minds";
+@import 'components/exam_cards';
+@import 'components/button_chat'; 
+@import 'components/signin';
+
+// 4. COMPONENTS (Boutons, cartes, formulaires, etc.)
+// @import 'components/button'; 
+// @import 'components/card';
+
+// 5. PAGES (Styles spécifiques à une page)
+// @import 'pages/home'; 
+
+// 6. UTILITIES (Classes utilitaires non gérées par Tailwind)
+// @import 'utilities/helpers';
