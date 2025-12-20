@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/publication.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Nouvelle Publication </title>
+</head>
+<body>
+    bonjoutr
+     <!-- Publish Modal (same style as in matières) -->
+    <div id="publishModal" class="modal" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;display:none;align-items:center;justify-content:center;">
+      <a href="#" class="modal-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,.5);"></a>
+      <div class="modal-content" style="position:relative;background:#fff;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.15);padding:2.5rem;width:90%;max-width:900px;max-height:90vh;overflow-y:auto;">
+        <a href="#" class="modal-close" style="position:absolute;top:1.25rem;right:1.25rem;text-decoration:none;font-size:24px;color:#4A5568;">&times;</a>
+        <div class="modal-header" style="text-align:center;margin-bottom:1.25rem;">
+          <h2 class="modal-title" style="font-size:32px;font-weight:700;color:#2D3748;margin-bottom:.5rem;">Nouvelle publication</h2>
+          <p class="modal-subtitle" style="font-size:16px;color:#48BB78;font-weight:500;">Information de publications</p>
+        </div>
+        <form id="publishForm" class="modal-form" style="display:flex;flex-direction:column;gap:1rem;">
+          <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div class="form-field">
+              <label class="form-label" for="pubTitle">Titre</label>
+              <input id="pubTitle" class="form-input" placeholder="Titre" style="width:100%;padding:14px 16px;border:1px solid #E2E8F0;border-radius:8px;" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="pubSubject">Matière</label>
+              <input id="pubSubject" class="form-input" placeholder="Matière" style="width:100%;padding:14px 16px;border:1px solid #E2E8F0;border-radius:8px;" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="pubDesc">Description</label>
+            <textarea id="pubDesc" class="form-textarea" placeholder="Entrer une description ..." style="width:100%;min-height:120px;padding:14px 16px;border:1px solid #E2E8F0;border-radius:8px;" required></textarea>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="pubFile">Fichier</label>
+            <input id="pubFile" name="pubFile" type="file" style="position:absolute;left:-9999px;width:1px;height:1px;" />
+            <label for="pubFile" id="uploadZone" style="border:2px dashed #CBD5E0;border-radius:8px;padding:2rem;text-align:center;cursor:pointer;display:block;">
+              <div style="font-size:28px;color:#4A5568;margin-bottom:.5rem;"><i class="fas fa-download"></i></div>
+              <div style="font-weight:600;color:#2D3748;margin-bottom:.25rem;">Importer un fichier</div>
+              <div style="color:#A0AEC0;">Glissez et déposez les fichiers ici (ou cliquez)</div>
+              <div id="selectedFile" style="margin-top:12px;color:#2D3748;font-size:12px;font-weight:600;"></div>
+            </label>
+          </div>
+          <div class="form-field" style="display:flex;gap:1.25rem;align-items:flex-start;">
+            <div style="font-weight:600;color:#2D3748;white-space:nowrap;">Options :</div>
+            <div style="display:flex;flex-direction:column;gap:.75rem;">
+              <label style="display:flex;align-items:center;gap:.5rem;"><input id="optComments" type="checkbox"/> Autoriser commentaire</label>
+              <label style="display:flex;align-items:center;gap:.5rem;"><input id="optPublic" type="checkbox"/> Public</label>
+              <label style="display:flex;align-items:center;gap:.5rem;"><input id="optDownload" type="checkbox"/> Téléchargeable</label>
+            </div>
+          </div>
+          <div class="modal-actions" style="display:flex;justify-content:flex-end;gap:.75rem;margin-top:.5rem;">
+            <a href="#" class="btn-modal btn-cancel" style="padding:12px 32px;background:#CBD5E0;border-radius:8px;color:#4A5568;text-decoration:none;">Annuler</a>
+            <button type="submit" class="btn-modal btn-validate" style="padding:12px 32px;border:none;border-radius:8px;background:var(--brand-teal);color:#fff;">Valider</button>
+          </div>
+        </form>
+      </div>
+    </div>
+<script>
+      (function () {
+        const fileInput = document.getElementById('pubFile')
+        const uploadZone = document.getElementById('uploadZone')
+        const selectedFile = document.getElementById('selectedFile')
+
+        if (!fileInput || !uploadZone || !selectedFile) return
+
+        function renderSelectedFile() {
+          const file = fileInput.files && fileInput.files[0]
+          selectedFile.textContent = file ? `Fichier sélectionné : ${file.name}` : ''
+        }
+
+        fileInput.addEventListener('change', renderSelectedFile)
+
+        // Drag & drop support
+        ;['dragenter', 'dragover'].forEach((evt) => {
+          uploadZone.addEventListener(evt, (e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            uploadZone.style.borderColor = 'var(--brand-teal)'
+            uploadZone.style.background = 'rgba(26,172,172,.06)'
+          })
+        })
+
+        ;['dragleave', 'drop'].forEach((evt) => {
+          uploadZone.addEventListener(evt, (e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            uploadZone.style.borderColor = '#CBD5E0'
+            uploadZone.style.background = 'transparent'
+          })
+        })
+
+        uploadZone.addEventListener('drop', (e) => {
+          const dt = e.dataTransfer
+          if (!dt || !dt.files || dt.files.length === 0) return
+
+          // assign dropped files to input (fallback via DataTransfer if needed)
+          try {
+            fileInput.files = dt.files
+          } catch {
+            const transfer = new DataTransfer()
+            Array.from(dt.files).forEach((f) => transfer.items.add(f))
+            fileInput.files = transfer.files
+          }
+          renderSelectedFile()
+        })
+      })()
+    </script>
+</body>
+</html>
