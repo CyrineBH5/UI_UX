@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "build": "npx tailwindcss -i ./src/input.css -o ./public/style.css --watch"
-},
+    "build": "node ./node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./public/tailwind.css --minify",
+    "postinstall": "chmod +x node_modules/.bin/tailwindcss",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
